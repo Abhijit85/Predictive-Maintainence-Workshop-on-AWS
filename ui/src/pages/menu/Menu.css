@@ -1,0 +1,157 @@
+.menu-nav {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.dropdown {
+  position: relative;
+  min-width: 180px;
+}
+
+.dropdown-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.35rem;
+}
+
+.form-select {
+  width: 100%;
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  font-family: var(--font-primary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-elevated);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23889397' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 10px 6px;
+}
+
+.form-select:hover {
+  border-color: var(--color-accent-green);
+}
+
+.form-select:focus {
+  border-color: var(--color-accent-green);
+  box-shadow: 0 0 0 2px rgba(0, 237, 100, 0.15);
+}
+
+.form-select option {
+  background: var(--color-bg-elevated);
+  color: var(--color-text-primary);
+  padding: 0.4rem 0.75rem;
+}
+
+.form-select optgroup {
+  background: var(--color-bg-elevated);
+  color: var(--color-text-muted);
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+/* Custom model input */
+.custom-model-input {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-accent-green);
+  border-radius: var(--radius-md);
+  padding: 0.3rem;
+  box-shadow: 0 0 0 2px rgba(0, 237, 100, 0.15);
+}
+
+.form-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.4rem 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-text-primary);
+  outline: none;
+  transition: background var(--transition-fast);
+}
+
+.form-input:focus {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.form-input::placeholder {
+  color: var(--color-text-muted);
+  font-style: normal;
+}
+
+.custom-model-buttons {
+  display: flex;
+  gap: 0.2rem;
+  flex-shrink: 0;
+}
+
+.custom-model-btn {
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.confirm-btn {
+  background: var(--color-accent-forest);
+  color: var(--color-accent-green);
+}
+
+.confirm-btn:hover {
+  background: var(--color-accent-green);
+  color: var(--color-bg-primary);
+  transform: scale(1.05);
+}
+
+.cancel-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text-muted);
+}
+
+.cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--color-text-primary);
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .menu-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .dropdown {
+    min-width: unset;
+  }
+}

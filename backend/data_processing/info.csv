@@ -1,0 +1,69 @@
+_id,type,description,color,icon,min,max
+6889503f03bf90a006983a46,cooler_condition,close to total failure,#dc3545,❄️,3,3
+6889503f03bf90a006983a47,cooler_condition,reduced efficiency,#ffc107,❄️,20,20
+6889503f03bf90a006983a48,cooler_condition,full efficiency,#00ED64,❄️,100,100
+6889503f03bf90a006983a49,valve_condition,optimal switching behavior,#00ED64,🔧,100,100
+6889503f03bf90a006983a4a,valve_condition,small lag,#ffc107,🔧,90,90
+6889503f03bf90a006983a4b,valve_condition,severe lag,#fd7e14,🔧,80,80
+6889503f03bf90a006983a4c,valve_condition,close to total failure,#dc3545,🔧,73,73
+6889503f03bf90a006983a4d,internal_pump_leakage,no leakage,#00ED64,💧,0,0
+6889503f03bf90a006983a4e,internal_pump_leakage,weak leakage,#ffc107,💧,1,1
+6889503f03bf90a006983a4f,internal_pump_leakage,severe leakage,#dc3545,💧,2,2
+6889503f03bf90a006983a50,hydraulic_accumulator,optimal pressure,#00ED64,⚙️,130,130
+6889503f03bf90a006983a51,hydraulic_accumulator,slightly reduced pressure,#ffc107,⚙️,115,115
+6889503f03bf90a006983a52,hydraulic_accumulator,severely reduced pressure,#fd7e14,⚙️,100,100
+6889503f03bf90a006983a53,hydraulic_accumulator,close to total failure,#dc3545,⚙️,90,90
+68a8c9f5c1080e84d830dc20,methane_ppm,Baseline/Zero Point - Clean air reference or complete methane absence,#00ED64,💨,0,66
+68a8c9f5c1080e84d830dc21,methane_ppm,Ultra-low methane presence - Natural background levels,#00ED64,💨,67,70
+68a8c9f5c1080e84d830dc22,methane_ppm,"Low-level methane detection - Easily detectable, no safety concerns",#00ED64,💨,71,73
+68a8c9f5c1080e84d830dc23,methane_ppm,Low-moderate methane levels - Typical of minor natural gas presence,#00ED64,💨,74,76
+68a8c9f5c1080e84d830dc24,methane_ppm,Moderate methane levels - Continue normal monitoring,#00ED64,💨,77,80
+68a8c9f5c1080e84d830dc25,methane_ppm,Elevated background - Monitor for potential minor leaks,#00ED64,💨,81,83
+68a8c9f5c1080e84d830dc26,methane_ppm,Notable presence - Verify sensor array consistency,#00ED64,💨,84,87
+68a8c9f5c1080e84d830dc27,methane_ppm,Higher normal range - Continue monitoring,#00ED64,💨,88,90
+68a8c9f5c1080e84d830dc28,methane_ppm,Transition level - Begin enhanced monitoring,#ffc107,💨,91,93
+68a8c9f5c1080e84d830dc29,methane_ppm,Moderate concentration - Industrial process emissions level,#ffc107,💨,94,97
+68a8c9f5c1080e84d830dc2a,methane_ppm,Notable methane presence - Verify sensor readings,#ffc107,💨,98,100
+68a8c9f5c1080e84d830dc2b,methane_ppm,Elevated levels requiring attention - Monitor trends,#ffc107,💨,101,103
+68a8c9f5c1080e84d830dc2c,methane_ppm,High-normal range - Track rate of change,#ffc107,💨,104,107
+68a8c9f5c1080e84d830dc2d,methane_ppm,Caution level - Investigate potential sources,#ffc107,💨,108,110
+68a8c9f5c1080e84d830dc2e,methane_ppm,Warning threshold approach - Enhanced monitoring required,#ffc107,💨,111,113
+68a8c9f5c1080e84d830dc2f,methane_ppm,Upper caution range - Prepare for potential action,#ffc107,💨,114,117
+68a8c9f5c1080e84d830dc30,methane_ppm,Pre-warning level - Close monitoring essential,#ffc107,💨,118,120
+68a8c9f5c1080e84d830dc31,methane_ppm,Warning transition - Begin investigation protocols,#fd7e14,💨,121,123
+68a8c9f5c1080e84d830dc32,methane_ppm,Warning level - Active investigation required,#fd7e14,💨,124,130
+68a8c9f5c1080e84d830dc33,methane_ppm,Significant presence - Check system integrity,#fd7e14,💨,131,133
+68a8c9f5c1080e84d830dc34,methane_ppm,High warning level - Implement enhanced protocols,#fd7e14,💨,134,137
+68a8c9f5c1080e84d830dc35,methane_ppm,Critical warning - Immediate assessment needed,#fd7e14,💨,138,143
+68a8c9f5c1080e84d830dc36,methane_ppm,High concentration - Process review required,#fd7e14,💨,144,147
+68a8c9f5c1080e84d830dc37,methane_ppm,Elevated risk level - Safety procedures activation,#fd7e14,💨,148,150
+68a8c9f5c1080e84d830dc38,methane_ppm,High risk threshold - Critical monitoring,#dc3545,💨,151,153
+68a8c9f5c1080e84d830dc39,methane_ppm,Critical level - Immediate action required,#dc3545,💨,154,157
+68a8c9f5c1080e84d830dc3a,methane_ppm,High-risk concentration - Emergency protocols,#dc3545,💨,158,160
+68a8c9f5c1080e84d830dc3b,methane_ppm,Dangerous level - System shutdown consideration,#dc3545,💨,161,163
+68a8c9f5c1080e84d830dc3c,methane_ppm,Very high risk - Critical safety measures,#dc3545,💨,164,167
+68a8c9f5c1080e84d830dc3d,methane_ppm,Extreme caution level - Full safety protocol,#dc3545,💨,168,170
+68a8c9f5c1080e84d830dc3e,methane_ppm,Maximum warning - Emergency response ready,#dc3545,💨,171,177
+68a8c9f5c1080e84d830dc3f,methane_ppm,Critical emergency level - Immediate evacuation consideration,#dc3545,💨,178,180
+68a8c9f5c1080e84d830dc40,methane_ppm,Extreme danger - Full emergency protocols,#dc3545,💨,181,183
+68a8c9f5c1080e84d830dc41,methane_ppm,Maximum risk threshold - Emergency shutdown,#dc3545,💨,184,207
+68a8c9f5c1080e84d830dc42,methane_ppm,Extreme concentration - Critical safety activation,#dc3545,💨,208,217
+68a8c9f5c1080e84d830dc43,methane_ppm,Hazardous level - Full emergency response,#dc3545,💨,218,220
+68a8c9f5c1080e84d830dc44,methane_ppm,Life-threatening concentration - Immediate evacuation,#dc3545,💨,221,233
+68a8c9f5c1080e84d830dc45,methane_ppm,Extreme hazard - Emergency services alert,#dc3545,💨,234,240
+68a8c9f5c1080e84d830dc46,methane_ppm,Maximum danger - Critical emergency state,#dc3545,💨,241,243
+68a8c9f5c1080e84d830dc47,methane_ppm,Catastrophic level - Full site evacuation,#dc3545,💨,244,250
+68a8c9f5c1080e84d830dc48,methane_ppm,Lethal concentration potential - Emergency response,#dc3545,💨,251,260
+68a8c9f5c1080e84d830dc49,methane_ppm,Extreme lethal risk - Maximum emergency protocols,#dc3545,💨,261,273
+68a8c9f5c1080e84d830dc4a,methane_ppm,Ultimate danger level - Critical system failure,#dc3545,💨,274,277
+68a8c9f5c1080e84d830dc4b,methane_ppm,Maximum hazard threshold - Complete evacuation,#dc3545,💨,278,280
+68a8c9f5c1080e84d830dc4c,methane_ppm,Extreme emergency level - Site isolation required,#dc3545,💨,281,283
+68a8c9f5c1080e84d830dc4d,methane_ppm,Critical failure state - Emergency services deployment,#dc3545,💨,284,287
+68a8c9f5c1080e84d830dc4e,methane_ppm,Ultimate emergency - Maximum safety response,#dc3545,💨,288,290
+68a8c9f5c1080e84d830dc4f,methane_ppm,Peak danger concentration - Full emergency deployment,#dc3545,💨,291,293
+68a8c9f5c1080e84d830dc50,methane_ppm,Maximum recorded level - Complete system shutdown,#dc3545,💨,294,297
+68a8c9f5c1080e84d830dc51,stable_flag,system unstable,#dc3545,📊,0,0
+68a8c9f5c1080e84d830dc52,stable_flag,system stable,#00ED64,📊,1,1
+68a8c9f5c1080e84d830dc53,motor_power,severely degraded power,#dc3545,⚡,0,0
+68a8c9f5c1080e84d830dc54,motor_power,slightly degraded power,#ffc107,⚡,1,1
+68a8c9f5c1080e84d830dc55,motor_power,full power efficiency,#00ED64,⚡,2,2

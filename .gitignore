@@ -1,0 +1,43 @@
+node_modules/
+*.pyc
+__pycache__/
+*.ipynb
+results.txt
+
+# Terraform
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+*.tfvars
+*.tfvars.json
+!deployment/config/deploy-local.tfvars.json
+
+# Python
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Models (large binary files)
+backend/models/*.pkl
+backend/encoders/*.pkl

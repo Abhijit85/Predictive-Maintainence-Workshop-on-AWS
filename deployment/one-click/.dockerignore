@@ -1,0 +1,6 @@
+ui/node_modules
+ui/build
+ui/.env
+ui/.env.local
+**/.git
+**/.DS_Store

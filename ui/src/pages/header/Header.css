@@ -1,0 +1,49 @@
+.logo-image {
+  height: 70px;
+  max-width: 100%;
+  object-fit: contain;
+  filter: brightness(1.2) contrast(1.1);
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: var(--color-bg-elevated);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  gap: 1.5rem;
+}
+
+.powered-by {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.powered-by-label {
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.badge {
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+}
+
+.badge-aws {
+  background-color: #ff9900;
+}
+
+.badge-mongodb {
+  background-color: var(--color-accent-forest);
+}
+
+.badge-voyage {
+  background-color: #5b21b6;
+}
