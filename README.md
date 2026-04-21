@@ -132,3 +132,9 @@ For full configuration details, see [docs/CONFIGURATION.md](./docs/CONFIGURATION
 - [Local Quickstart](./docs/LOCAL_QUICKSTART.md)
 - [Deployment](./docs/DEPLOYING.md)
 - [Features & Usage](./docs/FEATURES_AND_USAGE.md)
+- [Oil & Gas Developer Day](./docs/OilAndGas-DevDay.md)
+
+## Workshop Assets
+
+- [Oil & Gas Vector Search Lab](./notebooks/01_vector_search_oil_gas.ipynb)
+- [Oil & Gas RAG Diagnostics Lab](./notebooks/02_rag_diagnostics_oil_gas.ipynb)
