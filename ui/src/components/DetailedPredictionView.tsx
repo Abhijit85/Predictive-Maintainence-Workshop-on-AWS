@@ -4,6 +4,7 @@ import { Prediction } from '../types/Prediction';
 import { getDiagnoseData } from '../api/predictions';
 import { useUserContext } from '../App';
 import { parseUTCDatetime } from '../utils/datetime';
+import { getSensorMetadata } from '../config/sensorMetadata';
 import './DetailedPredictionView.css';
 
 /** Convert a string to Title Case */
@@ -30,95 +31,6 @@ interface PipelineDetails {
     rerank_score?: number;
   }>;
 }
-
-/** Sensor-specific about/context information */
-const sensorAbout: Record<string, { summary: string; measures: string; readings: string[]; states: string[] }> = {
-  cooler_condition: {
-    summary: 'Monitors the cooling system that regulates hydraulic fluid temperature. Overheating degrades oil viscosity, accelerates wear on seals and pumps, and can cause sudden shutdowns.',
-    measures: 'Thermal efficiency of the cooling circuit, derived from temperature differentials (TS1–TS4), coolant flow rates (FS1, FS2), and cooling power (CP).',
-    readings: [
-      'TS1–TS4 — Temperature sensors across the cooling loop (°C)',
-      'FS1, FS2 — Flow sensors measuring coolant throughput (l/min)',
-      'CP — Cooling power output (kW)',
-    ],
-    states: [
-      'Full efficiency (100) — Cooler operating at rated capacity',
-      'Reduced efficiency (20) — Degraded cooling; schedule maintenance',
-      'Close to total failure (3) — Imminent thermal runaway risk',
-    ],
-  },
-  valve_condition: {
-    summary: 'Tracks the hydraulic directional control valve responsible for routing pressurized fluid. Valve degradation causes sluggish actuator response and pressure losses.',
-    measures: 'Switching lag and response time of the valve spool, inferred from pressure transients (PS1–PS6) and flow behaviour (FS1, FS2).',
-    readings: [
-      'PS1–PS6 — Pressure sensors at various circuit points (bar)',
-      'FS1, FS2 — Flow sensors before and after the valve (l/min)',
-      'VS1 — Vibration sensor on the valve body (mm/s)',
-    ],
-    states: [
-      'Optimal switching behaviour (100) — Crisp, fast valve response',
-      'Small lag (90) — Minor delay; monitor trend',
-      'Severe lag (80) — Significant delay; plan repair',
-      'Close to total failure (73) — Valve nearly non-functional',
-    ],
-  },
-  internal_pump_leakage: {
-    summary: 'Detects internal leakage within the hydraulic pump. Leakage reduces volumetric efficiency, drops system pressure, and increases energy consumption.',
-    measures: 'Pump volumetric efficiency estimated from pressure differential (PS1–PS3), motor power draw (EPS1), and efficiency metrics (CE, SE).',
-    readings: [
-      'PS1, PS2, PS3 — Suction and discharge pressures (bar)',
-      'EPS1 — Motor electrical power consumption (W)',
-      'CE — Cooling efficiency (%)',
-      'SE — System efficiency (%)',
-    ],
-    states: [
-      'No leakage (0) — Pump seals intact, full efficiency',
-      'Weak leakage (1) — Minor seal wear; schedule inspection',
-      'Severe leakage (2) — Major internal bypass; immediate action needed',
-    ],
-  },
-  hydraulic_accumulator: {
-    summary: 'Monitors the gas-charged hydraulic accumulator that stores energy and dampens pressure spikes. Loss of pre-charge pressure leads to pulsation, cavitation, and pump damage.',
-    measures: 'Accumulator pre-charge pressure level, estimated from system pressure dynamics (PS1–PS6) and vibration (VS1).',
-    readings: [
-      'PS1–PS6 — System pressure measurements (bar)',
-      'VS1 — Vibration amplitude near the accumulator (mm/s)',
-      'EPS1 — Motor power draw reflecting load changes (W)',
-    ],
-    states: [
-      'Optimal pressure (130 bar) — Fully charged, operating normally',
-      'Slightly reduced (115 bar) — Minor gas loss; plan recharge',
-      'Severely reduced (100 bar) — Significant loss; recharge soon',
-      'Close to total failure (90 bar) — Critical; immediate recharge required',
-    ],
-  },
-  stable_flag: {
-    summary: 'An aggregate stability indicator that evaluates whether the overall hydraulic system is operating within stable boundaries. It combines signals from all sensors to detect oscillations, drift, or erratic behaviour.',
-    measures: 'Global system stability derived from a composite analysis of all 17 sensor channels — pressure, temperature, flow, vibration, and efficiency.',
-    readings: [
-      'All PS, TS, FS, VS, CE, CP, SE channels contribute',
-      'The model looks for oscillations, sudden shifts, and out-of-range correlations',
-    ],
-    states: [
-      'Stable (1) — System operating within normal bounds',
-      'Unstable (0) — Anomalous dynamics detected; investigate root cause',
-    ],
-  },
-  motor_power: {
-    summary: 'Assesses the electric drive motor powering the hydraulic pump. Degraded motor output leads to insufficient pressure, slower cycle times, and increased thermal stress.',
-    measures: 'Motor power efficiency estimated from electrical draw (EPS1), system pressures (PS1–PS6), and overall efficiency metrics (CE, SE).',
-    readings: [
-      'EPS1 — Motor electrical power consumption (W)',
-      'PS1–PS6 — Resulting system pressures (bar)',
-      'CE — Cooling efficiency (%), SE — System efficiency (%)',
-    ],
-    states: [
-      'Full power efficiency (2) — Motor delivering rated output',
-      'Slightly degraded (1) — Minor power loss; monitor trend',
-      'Severely degraded (0) — Significant power deficit; service required',
-    ],
-  },
-};
 
 /** Extract sensor type key from model_used string, e.g. "Random_Forest-cooler_condition" → "cooler_condition" */
 const getSensorKey = (modelUsed: string): string => {
@@ -233,12 +145,18 @@ const DetailedPredictionView: React.FC<DetailedPredictionViewProps> = ({
           <div className="main-content">
 
             {(() => {
-              const about = sensorAbout[getSensorKey(prediction.model_used)];
-              if (!about) return null;
+              const metadata = getSensorMetadata(getSensorKey(prediction.model_used));
+              if (!metadata) return null;
+              const about = metadata.about;
               return (
                 <div className="about-section">
-                  <h3>About This Sensor</h3>
+                  <h3>About This Signal</h3>
                   <div className="about-content">
+                    <div className="about-detail">
+                      <h4>Asset Context</h4>
+                      <p>{metadata.title} | {metadata.assetClass}</p>
+                    </div>
+
                     <p className="about-summary">{about.summary}</p>
 
                     <div className="about-detail">

@@ -8,6 +8,7 @@ import Menu from '../menu/Menu'
 import PredictionPanel from '../../components/PredictionPanel'
 import DetailedPredictionView from '../../components/DetailedPredictionView'
 import EventsModal from '../../components/EventsModal'
+import { getSensorTitle } from '../../config/sensorMetadata'
 import './Home.css'
 
 import { useUserContext } from '../../App'
@@ -38,7 +39,7 @@ const Home = () => {
   const panels = useMemo(() => {
     return sensors.map(sensor => ({
       id: sensor.replace(/_/g, '-'),
-      title: sensor.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+      title: getSensorTitle(sensor),
       field: sensor as keyof Prediction,
       sensor
     }))
@@ -190,8 +191,8 @@ const Home = () => {
               onClick={() => navigate('/')}
             />
             <div>
-              <h1 className="dashboard-title">System Monitoring Dashboard</h1>
-              <p className="dashboard-subtitle">Real-time Equipment Health Analysis</p>
+              <h1 className="dashboard-title">Oil &amp; Gas Asset Monitoring</h1>
+              <p className="dashboard-subtitle">Predictive maintenance, gas detection, and RAG diagnostics</p>
             </div>
           </div>
           <div className="system-status">
@@ -206,7 +207,7 @@ const Home = () => {
 
         <div className="monitoring-hero">
           <div className="hero-count">{Object.keys(predictions).length}</div>
-          <div className="hero-label">Active Sensors</div>
+          <div className="hero-label">Active Monitoring Streams</div>
         </div>
 
         <div className="status-bar">
